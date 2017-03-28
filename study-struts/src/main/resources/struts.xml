@@ -11,5 +11,9 @@
 		<action name="home" class="homeAction">
 			<result>WEB-INF/index.jsp</result>
 		</action>
+		
+		<action name="SendOrReceive" class="homeAction">
+			<result>WEB-INF/SendOrReceive.jsp</result>		
+		</action>
 	</package>
 </struts>

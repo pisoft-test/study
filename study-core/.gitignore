@@ -1,0 +1,7 @@
+/.classpath
+/.project
+/logs/
+/.settings/
+/target/
+/test-output/
+/H2Test/

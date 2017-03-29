@@ -4,9 +4,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<script src="../js/lib/jquery-1.7.min.js" type="text/javascript"></script>
-<script src="../js/app/Area.js" type="text/javascript"></script>
-<script src="../js/app/AreaData_min.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/js/lib/jquery-1.7.min.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/js/app/Area.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/js/app/AreaData_min.js" type="text/javascript"></script>
 <script type="text/javascript">
 $(function (){
 	initComplexArea('seachprov', 'seachcity', 'seachdistrict', area_array, sub_array, '44', '0', '0');
@@ -55,14 +55,10 @@ function getAreaNamebyID(areaID){
 </head>
 <body>
 <div>
-
 <select id="seachprov" name="seachprov" onChange="changeComplexProvince(this.value, sub_array, 'seachcity', 'seachdistrict');"></select>&nbsp;&nbsp;
 <select id="seachcity" name="homecity" onChange="changeCity(this.value,'seachdistrict','seachdistrict');"></select>&nbsp;&nbsp;
 <span id="seachdistrict_div"><select id="seachdistrict" name="seachdistrict"></select></span>
-
 <input type="button"  value="获取地区" onClick="showAreaID()"/>
-
-
 </div>
 <form>
 <span>请输入订单号 </span><input type="text"/>
@@ -72,9 +68,5 @@ function getAreaNamebyID(areaID){
 </select>
 <input type="submit" value="确定"></input>
 </form>
-
-%{servletPath}
-<%= request.getContextPath() %>
-
 </body>
 </html>

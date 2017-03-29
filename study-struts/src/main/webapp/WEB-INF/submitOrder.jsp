@@ -10,7 +10,9 @@
 	<div>
 		<h1>订单信息</h1>
 		<form id="message" action="submitOrder" method="post">
-			<label> 发件人姓名： </label> <input type="text" name="receiver.name" value=""><br/>
+			<label> 发件人姓名： </label> <input type="text" name="sender.name" value=""><br/>
+			<label> 发件人电话： </label> <input type="text" name="sender.phone" value=""><br/>
+			<label> 收件人电话： </label> <input type="text" name="receiver.phone" value=""><br/>
 			<input type="submit" value="提交" id="submit">
 		</form>
 	</div>

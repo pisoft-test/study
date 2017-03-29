@@ -15,5 +15,13 @@
 		<action name="SendOrReceive" class="homeAction">
 			<result>WEB-INF/SendOrReceive.jsp</result>		
 		</action>
+		
+		<action name="toSubmitOrderPage" class="submitOrderAction">
+			<result>WEB-INF/submitOrder.jsp</result>		
+		</action>
+		
+		<action name="submitOrder" class="submitOrderAction" method="submit">
+			<result>WEB-INF/submitOrder.jsp</result>		
+		</action>
 	</package>
 </struts>

@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="avc-func-test">
+	<test verbose="2" name="avc-func-test-all" annotations="JDK">
+		<packages>
+			<package name="io.pisoft.study.struts.action" />
+		</packages>
+		<classes>
+			<class name="io.pisoft.study.struts.TestFixture"></class>
+		</classes>
+	</test>
+</suite>

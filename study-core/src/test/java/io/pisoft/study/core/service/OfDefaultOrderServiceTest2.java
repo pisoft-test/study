@@ -8,16 +8,15 @@ import io.pisoft.study.core.entities.Status;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.testng.annotations.Test;
 
-public class DefaultOrderServiceTest extends CoreTest {
+public class OfDefaultOrderServiceTest2 extends CoreTest {
 
 	@Autowired
 	private OrderService orderService;
 
-	@Test
+	@Test(expectedExceptions = RuntimeException.class)
 	public void testCreateOrder() {
 		Order order = new Order();
 		Person sender;
-		Person receiver;
 		String province = "a";
 		String area = "b";
 		String city = "c";
@@ -25,10 +24,7 @@ public class DefaultOrderServiceTest extends CoreTest {
 
 		sender = createPerson(createAddress(province, area, city, details),
 				"陈大文", "11234567890");
-		receiver = createPerson(createAddress(province, area, city, details),
-				"陈大文", "11234567890");
 		order.setSender(sender);
-		order.setReceiver(receiver);
 		orderService.createOrder(order);
 		assert order.getCreateTime() != null;
 		assert order.getId() != null;

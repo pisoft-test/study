@@ -5,6 +5,8 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import io.pisoft.study.core.jpa.Persistable;
 
@@ -14,10 +16,16 @@ public class OrderItem implements Persistable {
 	@Id
 	@GeneratedValue
 	private Long id;
+	@ManyToOne
+	@JoinColumn(name = "despatcher_id")
 	private Despatcher despatcher;
 	private Date createTime;
+	@ManyToOne
+	@JoinColumn(name = "order_id")
 	private Order order;
 	private String status;
+	@ManyToOne
+	@JoinColumn(name = "address_id")
 	private Address address;
 
 	public Long getId() {

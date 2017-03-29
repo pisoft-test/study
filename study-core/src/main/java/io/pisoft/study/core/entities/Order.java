@@ -7,14 +7,24 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "orders")
 public class Order implements Persistable {
 	@Id
 	@GeneratedValue
 	private Long id;
+
+	@ManyToOne
+	@JoinColumn(name = "sender_id")
 	private Person sender;
+	@ManyToOne
+	@JoinColumn(name = "receiver_id")
 	private Person receiver;
+
 	private Date createTime;
 	private String number;
 	private String status;
@@ -65,6 +75,13 @@ public class Order implements Persistable {
 
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+	@Override
+	public String toString() {
+		return "Order [id=" + id + ", sender=" + sender + ", receiver="
+				+ receiver + ", createTime=" + createTime + ", number="
+				+ number + ", status=" + status + "]";
 	}
 
 }

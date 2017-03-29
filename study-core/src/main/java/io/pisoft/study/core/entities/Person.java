@@ -3,16 +3,26 @@ package io.pisoft.study.core.entities;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import io.pisoft.study.core.jpa.Persistable;
 
 @Entity
 public class Person implements Persistable {
 
+	@Override
+	public String toString() {
+		return "Person [id=" + id + ", name=" + name + ", address=" + address
+				+ ", phone=" + phone + "]";
+	}
+
 	@Id
 	@GeneratedValue
 	private Long id;
 	private String name;
+	@ManyToOne
+	@JoinColumn(name = "address_id")
 	private Address address;
 	private String phone;
 

@@ -28,7 +28,7 @@
 			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
 		</property>
 
-		<property name="packagesToScan" value="com.aqiang.hello.entities" />
+		<property name="packagesToScan" value="io.pisoft.study.core.entities" />
 
 		<property name="jpaProperties">
 			<props>

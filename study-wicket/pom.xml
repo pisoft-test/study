@@ -9,4 +9,11 @@
 	<artifactId>study-wicket</artifactId>
 	<packaging>war</packaging>
 	<version>app.version</version>
+	<dependencies>
+		<dependency>
+			<groupId>com.ttdev</groupId>
+			<artifactId>wpt-core</artifactId>
+			<version>3.0.1</version>
+		</dependency>
+	</dependencies>
 </project>

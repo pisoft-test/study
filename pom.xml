@@ -9,6 +9,7 @@
 		<module>study-core</module>
 		<module>study-struts</module>
 		<module>study-wicket</module>
+		<module>study-test</module>
 	</modules>
 	<properties>
 		<maven.compiler.source>1.7</maven.compiler.source>

@@ -1,5 +1,6 @@
 package io.pisoft.study.struts;
 
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
@@ -12,6 +13,7 @@ public class TestFixture {
 	public void setUp() {
 		WebAppTestConfiguration cfg = new WebAppTestConfiguration();
 		cfg.setOverrideWebXml("web-test.xml");
+		cfg.setSeleniumDriverClass(FirefoxDriver.class);
 		WebAppTestContext.beforeTests(cfg);
 	}
 

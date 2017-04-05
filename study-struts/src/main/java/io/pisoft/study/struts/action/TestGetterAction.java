@@ -31,5 +31,4 @@ public class TestGetterAction extends BaseAction {
 		return address;
 	}
 
-
 }

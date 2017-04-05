@@ -1,20 +1,17 @@
 package io.pisoft.study.struts;
 
-import mo.com.pisoft.sat.runtime.WebAppTestContext;
-import mo.com.pisoft.sat.runtime.WebTestConfiguration;
-import mo.com.pisoft.sat.runtime.jetty7.Jetty7ServerLauncher;
-
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
+
+import io.pisoft.study.test.jetty.test.WebAppTestConfiguration;
+import io.pisoft.study.test.jetty.test.WebAppTestContext;
 
 public class TestFixture {
 
 	@BeforeSuite(alwaysRun = true)
 	public void setUp() {
-		WebTestConfiguration cfg = new WebTestConfiguration();
-		cfg.setWebServerLauncherClass(Jetty7ServerLauncher.class);
-		cfg.setSeleniumDriverClass(FirefoxDriver.class);
+		WebAppTestConfiguration cfg = new WebAppTestConfiguration();
+		cfg.setOverrideWebXml("web-test.xml");
 		WebAppTestContext.beforeTests(cfg);
 	}
 

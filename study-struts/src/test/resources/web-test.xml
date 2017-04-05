@@ -5,6 +5,6 @@
 	version="3.0">
 	<context-param>
 		<param-name>contextClass</param-name>
-		<param-value>mo.com.pisoft.sat.runtime.spring.MockableXMLWebApplicationContext</param-value>
+		<param-value>io.pisoft.study.test.spring.MockableXMLWebApplicationContext</param-value>
 	</context-param>
 </web-app>

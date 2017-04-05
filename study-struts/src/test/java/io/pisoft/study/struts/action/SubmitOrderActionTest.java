@@ -1,26 +1,25 @@
 package io.pisoft.study.struts.action;
 
-import io.pisoft.study.core.entities.Order;
-import io.pisoft.study.core.service.OrderService;
-import io.pisoft.study.struts.BasePageTest;
-import mo.com.pisoft.sat.core.ChangeResistantMockFactory;
-import mo.com.pisoft.sat.core.MockableBeanInjector;
-import mo.com.pisoft.sat.runtime.WebAppTestContext;
-import mo.com.pisoft.sat.runtime.WebDriverWrapper;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.annotations.Test;
 
+import io.pisoft.study.core.entities.Order;
+import io.pisoft.study.core.service.OrderService;
+import io.pisoft.study.struts.BasePageTest;
+import io.pisoft.study.test.jetty.test.WebAppTestContext;
+import io.pisoft.study.test.selenium.ActionWrapper;
+import io.pisoft.study.test.spring.ChangeResistantMockFactory;
+import io.pisoft.study.test.spring.MockableBeanInjector;
+
 public class SubmitOrderActionTest extends BasePageTest {
 
 	private static final Logger LOGGER = LoggerFactory
 			.getLogger(SubmitOrderActionTest.class);
 
-	private ChangeResistantMockFactory factory = new ChangeResistantMockFactory(
-			this);
+	private ChangeResistantMockFactory factory = new ChangeResistantMockFactory(this);
 	private Order order;
 
 	class MockedOrderService implements OrderService {
@@ -44,7 +43,7 @@ public class SubmitOrderActionTest extends BasePageTest {
 		MockedOrderService orderService = new MockedOrderService();
 		MockableBeanInjector.mockBean("orderService", orderService);
 		WebDriver webDriver = WebAppTestContext.getWebDriver();
-		WebDriverWrapper wrapper = new WebDriverWrapper(webDriver);
+		ActionWrapper wrapper = new ActionWrapper(webDriver);
 		wrapper.action("toSubmitOrderPage");
 		webDriver.findElement(By.name("sender.name")).sendKeys("陈大文");
 		webDriver.findElement(By.name("sender.phone")).sendKeys("13800002255");

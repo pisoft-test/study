@@ -1,7 +1,9 @@
 package io.pisoft.study.struts.action;
 
+import org.testng.annotations.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.annotations.Test;
@@ -30,12 +32,20 @@ public class SubmitOrderActionTest extends BasePageTest {
 	}
 
 	@Test
-	public void testSubmit() throws InterruptedException {
+	public void testSubmit() {
 		OrderService orderService = factory.implementAbstractMethods(MockedOrderService.class);
 		// MockedOrderService orderService = new MockedOrderService();
 		MockableBeanInjector.mockBean("orderService", orderService);
-		WebDriver webDriver = WebAppTestContext.getWebDriver();
+		final WebDriver webDriver = WebAppTestContext.getWebDriver();
 		ActionWrapper wrapper = new ActionWrapper(webDriver);
+		wrapper.wait(new ExpectedCondition<Boolean>() {
+
+			@Override
+			public Boolean apply(WebDriver arg0) {
+				return webDriver.findElement(By.tagName("body")).isDisplayed();
+			}
+
+		});
 		wrapper.action("toSubmitOrderPage");
 		webDriver.findElement(By.name("sender.name")).sendKeys("陈大文");
 		webDriver.findElement(By.name("sender.phone")).sendKeys("13800002255");

@@ -48,7 +48,6 @@ public class MockableXMLWebApplicationContext extends XmlWebApplicationContext {
 	}
 
 	private void replaceFieldValueWithMockableBean(Object bean) {
-		System.out.println("----------------");
 		try {
 			Set<String> fieldNames = MockableBeanInjector.getMockedFieldNames();
 			for (String fieldName : fieldNames) {

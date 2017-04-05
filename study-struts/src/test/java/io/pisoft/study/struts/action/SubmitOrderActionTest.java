@@ -16,31 +16,23 @@ import io.pisoft.study.test.spring.MockableBeanInjector;
 
 public class SubmitOrderActionTest extends BasePageTest {
 
-	private static final Logger LOGGER = LoggerFactory
-			.getLogger(SubmitOrderActionTest.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(SubmitOrderActionTest.class);
 
 	private ChangeResistantMockFactory factory = new ChangeResistantMockFactory(this);
 	private Order order;
 
-	class MockedOrderService implements OrderService {
+	abstract class MockedOrderService implements OrderService {
 		@Override
 		public void createOrder(Order order) {
 			LOGGER.info("run mock order service");
 			SubmitOrderActionTest.this.order = order;
 		}
-
-		@Override
-		public void sendOrder(Order order) {
-			// TODO Auto-generated method stub
-
-		}
 	}
 
 	@Test
 	public void testSubmit() throws InterruptedException {
-		// OrderService orderService = factory
-		// .implementAbstractMethods(MockedOrderService.class);
-		MockedOrderService orderService = new MockedOrderService();
+		OrderService orderService = factory.implementAbstractMethods(MockedOrderService.class);
+		// MockedOrderService orderService = new MockedOrderService();
 		MockableBeanInjector.mockBean("orderService", orderService);
 		WebDriver webDriver = WebAppTestContext.getWebDriver();
 		ActionWrapper wrapper = new ActionWrapper(webDriver);

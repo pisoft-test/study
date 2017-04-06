@@ -6,9 +6,8 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
-
-	<context:component-scan base-package="com.aqiang.hello.jpa,com.aqiang.hello.service" />
-
+	<context:component-scan
+		base-package="io.pisoft.study.core.jpa, io.pisoft.study.core.service" />
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
 		<property name="user" value="${user}" />
 		<property name="password" value="${password}" />
@@ -28,7 +27,7 @@
 			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
 		</property>
 
-		<property name="packagesToScan" value="com.aqiang.hello.entities" />
+		<property name="packagesToScan" value="io.pisoft.study.core.entities" />
 
 		<property name="jpaProperties">
 			<props>

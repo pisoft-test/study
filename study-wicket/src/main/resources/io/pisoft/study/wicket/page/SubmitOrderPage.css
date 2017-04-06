@@ -1,0 +1,44 @@
+.container {
+  width: 1024px;
+  margin: 0px auto;
+  padding: 20px;
+}
+
+.left-part {
+  float: left;
+  width: 480px;
+}
+
+.right-part {
+   float: right;
+   width: 480px;
+}
+
+.form-line {
+  margin: 10px 0px;
+}
+
+.label {
+  width: 150px;
+  float: left;
+}
+
+.form-item-container {
+  float: left;
+  width: 300px;
+}
+
+.form-item {
+  width: 240px;
+  height: 24px;
+  line-height: 24px;
+}
+
+.clear-float {
+  clear: both;
+}
+
+.form-item-select {
+  width: 80px;
+  height: 20px;
+}

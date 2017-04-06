@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="avc-func-test">
+	<test verbose="2" name="avc-func-test-all" annotations="JDK">
+		<packages>
+			<package name="io.pisoft.study.wicket.page" />
+		</packages>
+		<classes>
+			<class name="com.ttdev.wicketpagetest.WebPageTestContext"></class>
+		</classes>
+	</test>
+</suite>
